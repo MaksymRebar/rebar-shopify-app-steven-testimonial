@@ -1,0 +1,27 @@
+{% assign avg_rating = block.settings.product.metafields.demo.avg_rating.value | round %}
+<script src="https://google-review-app--development.gadget.app/api/client/web.min.js"></script>
+<script>
+  window.api = new Gadget({
+    environment: "Development",
+
+  })
+</script>
+<div if="google-map-review-widget" ></div>
+
+<script>
+  api.Review.findMany()
+  .then(response=>{
+    console.log(response.length)
+  })
+</script>
+{% schema %}
+{
+  "name": "Google Map Review Widget",
+  "target": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "product", "autofill": true },
+    { "type": "color", "id": "colour", "label": "Star Colour", "default": "#ff0000" }
+  ]
+}
+{% endschema %}
+
