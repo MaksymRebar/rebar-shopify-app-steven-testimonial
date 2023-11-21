@@ -7,24 +7,24 @@
     margin: 10px;
 }
 .review-avatar{
-    width:10%;
+    width:20%;
     height: auto;
     display: inline-block;
     margin-left: 5%;
     /* margin-top: 10px; */
-    align-items: flex-start;
+    align-items: center;
 }
 .review-name{
     display: inline-block;
     margin-left: 5%;
     /* margin-top: 10px; */
-    align-items: flex-start;
+    align-items: center;
 }
 .review-info{
     display: inline-block;
     margin-left: 5%;
     /* margin-top: 10px; */
-    align-items: flex-start;
+    align-items: center;
 }
 .review-text{
     word-wrap: break-word;
