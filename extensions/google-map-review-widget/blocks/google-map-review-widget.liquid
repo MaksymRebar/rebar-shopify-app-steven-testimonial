@@ -6,7 +6,11 @@
 <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js" ></script>
 {{ "slick.js" | asset_url | script_tag }}
 <section>
-<h2 style="text-align:center;" >Our Customers</h2>
+<div class="review-header" >
+  <h2 >Our Customers</h2>
+  {% comment %} <div style="min-width:10%;" ></div> {% endcomment %}
+  <a id="review-link" href="" target="_blank" ><img class="review-logo" src="{{ 'google-logo.png' | asset_url }}" /></a>
+</div>
 <div id="review-container" class="regular slider">
 </div>
 </section>
@@ -22,6 +26,10 @@
     })
     const AppConfig=await api.AppConfig.findFirst();
     console.log(AppConfig)
+    if(AppConfig.MyPlace){
+      var review_link=document.getElementById('review-link');
+      review_link.setAttribute('href',`https://search.google.com/local/writereview?placeid=${AppConfig.MyPlace}`)
+    }
     var filter={
       rating:{greaterThanOrEqual:AppConfig.ShowRating}
     };
@@ -34,12 +42,13 @@
     response.map((oneReview,index)=>{
       reviewContainer.innerHTML+=`
         <div class="item slider-item" style="width:80%" >
-          <div>
+          <div class="review-author">
             <img class="review-avatar" src="${oneReview.profile_photo_url?oneReview.profile_photo_url:""}" alt="image" />
             <div class="review-info"  >
               <h4 >${oneReview.author_name&&oneReview.author_name}</h4>
               <p>${oneReview.data&&AppConfig.ShowDate?oneReview.data.relative_time_description:""}</p>
             </div>
+          </div>
             <div class="review-rating" >
               
                 ${0<oneReview.rating?"★":"☆"}
@@ -48,8 +57,8 @@
                 ${3<oneReview.rating?"★":"☆"}
                 ${4<oneReview.rating?"★":"☆"}
             </div>
-          </div>
           <p class="review-text" >${oneReview.text}</p>
+          <img style="float:right;width:10%;margin-right:10px;margin-bottom:10px;" src="{{ "google-icon.png" | asset_url }}" />
         </div>
       `;
     });

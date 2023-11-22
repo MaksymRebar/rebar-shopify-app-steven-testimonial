@@ -21,10 +21,10 @@
     align-items: center;
 }
 .review-info{
-    display: inline-block;
+    /* display: inline-block; */
     margin-left: 5%;
     /* margin-top: 10px; */
-    align-items: center;
+    /* align-items: center; */
 }
 .review-text{
     word-wrap: break-word;
@@ -38,8 +38,23 @@
     margin-top: 0;
     font-size: x-large;
 }
-.review-rating img{
-    width:10%
+.review-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.slider{
+.review-author{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.review-logo{
+    width: 10vw;
+    display: inline;
+    margin-left:20px;
+}
+@media only screen and (max-width: 600px) {
+    .review-logo{
+        width: 20%;
+    }
 }
