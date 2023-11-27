@@ -1,8 +1,8 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-name = "google-review-app"
-client_id = "aa9649d6118add961948969f653ce2c2"
-application_url = "https://google-review-app--development.gadget.app/api/shopify/install-or-render"
+name = "google-review-app-prod"
+client_id = "a0ada2d4edb9cb42318728c85ee96733"
+application_url = "https://google-review-app.gadget.app/api/shopify/install-or-render"
 embedded = true
 
 [access_scopes]
@@ -11,7 +11,7 @@ use_legacy_install_flow = true
 
 [auth]
 redirect_urls = [
-  "https://google-review-app--development.gadget.app/api/connections/auth/shopify/callback"
+  "https://google-review-app.gadget.app/api/connections/auth/shopify/callback"
 ]
 
 [webhooks]
