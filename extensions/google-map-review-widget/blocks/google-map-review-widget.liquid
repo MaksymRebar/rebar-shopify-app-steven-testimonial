@@ -32,7 +32,7 @@
   </div>
 </section>
 <script async defer>
-  const appURL=`https://google-review-app.gadget.app`;
+  const appURL=`https://google-review-app--development.gadget.app`;
   function onSlick(){
     console.log('Attempting Slicking')
     if($&&$().slick){
@@ -115,6 +115,9 @@
         lazyLoad: 'ondemand', 
         infinite: true
       });
+      $("div.review-readmore-panel").click(function(e){
+        // console.log(e)
+      })
     }else{
       setTimeout(() => {
         onSlick();
@@ -151,7 +154,10 @@
                 ${3<oneReview.rating?"★":"☆"}
                 ${4<oneReview.rating?"★":"☆"}
             </div>
-          <p class="review-text" >${oneReview.text}</p>
+            <div id="review-content" class="review-content-panel-general">
+              <p class="review-text" >${oneReview.text}</p>
+            </div>
+            
           <img style="float:right;width:10%;margin-right:10px;margin-bottom:10px;" src="{{ "google-icon.png" | asset_url }}" />
         </div>
       `;
@@ -159,6 +165,14 @@
     onSlick()
     
   };
+  function expand(e){
+    var contentPanel=e.parentElement.getElementsByClassName("review-content-panel-general")[0];
+    console.log(contentPanel)
+    if(contentPanel.className=="review-content-panel-general review-fold")
+      contentPanel.className='review-content-panel-general';
+    else contentPanel.className="review-content-panel-general review-fold"
+  }
+  
 </script>
 {% schema %}
 {
