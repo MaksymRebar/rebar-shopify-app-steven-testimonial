@@ -1,8 +1,8 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-name = "google-review-app-prod"
-client_id = "52b654a63fd96d27dd43aa87e4d272fa"
-application_url = "https://google-review-app--development.gadget.app/api/shopify/install-or-render"
+name = "google-map-reviews-app-prod"
+client_id = "19b253686e9fae59b75035f94665075c"
+application_url = "https://google-map-review-importer.gadget.app/api/shopify/install-or-render"
 embedded = true
 
 [access_scopes]
@@ -11,14 +11,14 @@ use_legacy_install_flow = true
 
 [auth]
 redirect_urls = [
-  "https://google-review-app--development.gadget.app/api/connections/auth/shopify/callback"
+  "https://google-map-review-importer.gadget.app/api/connections/auth/shopify/callback"
 ]
 
 [webhooks]
-api_version = "2023-10"
+api_version = "2024-01"
 
 [pos]
 embedded = false
 
 [build]
-dev_store_url = "demo-store-gorilla-monk.myshopify.com"
+dev_store_url = "quickstart-ce1623bc.myshopify.com"
